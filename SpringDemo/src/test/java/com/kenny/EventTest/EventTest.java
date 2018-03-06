@@ -4,6 +4,7 @@ import com.kenny.springframework.event.EventConfig;
 import com.kenny.springframework.event.EventPublisher;
 import org.junit.Assert;
 import org.junit.Test;
+import org.springframework.beans.BeansException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -19,7 +20,12 @@ public class EventTest {
   public void eventTest(){
     AnnotationConfigApplicationContext context =
         new AnnotationConfigApplicationContext(EventConfig.class);
-    EventPublisher publisher = context.getBean(EventPublisher.class);
+    EventPublisher publisher = null;
+    try {
+      publisher = context.getBean(EventPublisher.class);
+    } catch (BeansException e) {
+      e.printStackTrace();
+    }
     Assert.assertNotNull(publisher);
     publisher.publish("hello kenny");
     context.close();
