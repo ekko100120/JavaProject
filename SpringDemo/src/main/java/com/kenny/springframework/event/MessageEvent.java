@@ -1,5 +1,7 @@
 package com.kenny.springframework.event;
 
+import org.springframework.context.ApplicationEvent;
+
 /**
  * @param :
  * @author: 62083 【makai@casco.com.cn】
@@ -8,4 +10,7 @@ package com.kenny.springframework.event;
  * @return:
  */
 public class MessageEvent extends ApplicationEvent {
+  public MessageEvent(Object source) {
+    super(source);
+  }
 }
