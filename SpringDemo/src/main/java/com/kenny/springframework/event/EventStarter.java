@@ -1,5 +1,6 @@
 package com.kenny.springframework.event;
 
+import org.springframework.beans.BeansException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
@@ -11,11 +12,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  */
 public class EventStarter {
 
-  public static void main(String[] args) {
+  public static void main(String[] args)  {
     AnnotationConfigApplicationContext context =
                           new AnnotationConfigApplicationContext(EventConfig.class);
-    EventPublisher publisher = context.getBean(EventPublisher.class);
-    publisher.publish("hello kenny");
+    EventPublisher publisher = null;
+      publisher = context.getBean(EventPublisher.class);
+      publisher.publish("hello kenny");
     context.close();
   }
 }
