@@ -10,7 +10,20 @@ import org.springframework.context.ApplicationEvent;
  * @return:
  */
 public class MessageEvent extends ApplicationEvent {
-  public MessageEvent(Object source) {
+
+  private  static final long serialVersionUID = 1L;
+  private  String msg;
+
+  public MessageEvent(Object source, String msg) {
     super(source);
+    this.msg = msg;
+  }
+
+  public String getMsg() {
+    return msg;
+  }
+
+  public void setMsg(String msg) {
+    this.msg = msg;
   }
 }
