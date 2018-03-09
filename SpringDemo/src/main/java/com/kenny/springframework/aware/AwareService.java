@@ -2,6 +2,7 @@ package com.kenny.springframework.aware;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.cache.Cache;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -30,6 +31,8 @@ public class AwareService implements BeanNameAware,ResourceLoaderAware {
   @Override
   public void setResourceLoader(ResourceLoader resourceLoader) {
       this.loader = resourceLoader;
+
+
   }
 
   public  void outputResult(){
